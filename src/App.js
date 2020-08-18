@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react'
+import Game from './components/Game'
+import './App.css'
+import { Reducer, InitialState, Context } from './store'
 
-function App() {
+function App () {
+  const [store, dispatch] = useReducer(Reducer, InitialState)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Context.Provider value={{ store, dispatch }}>
+      <div
+        className='App'
+        tabIndex='0'
+        onKeyDown={(e) => dispatch({ type: 'keyDown', keyCode: e.keyCode })}
+        onKeyUp={(e) => dispatch({ type: 'keyUp', keyCode: e.keyCode })}
+      >
+        <header className='App-header'>
+          <div>Score: {store.score}</div>
+          <div>Run Unicorn!</div>
+          <div>Deads: {store.deads}</div>
+        </header>
+        <game>
+          <Game />
+        </game>
+        <footer>
+          <div>UnoTalks</div>
+          <div>Audelio Lujan</div>
+          <div>JS Guild</div>
+        </footer>
+      </div>
+    </Context.Provider>
+  )
 }
 
-export default App;
+export default App
