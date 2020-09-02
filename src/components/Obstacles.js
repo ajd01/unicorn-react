@@ -18,7 +18,7 @@ const Obstacle = ({ type = 'hay', position }) => {
 }
 
 const Obstacles = () => {
-  const { store, dispatch } = useContext(Context)
+  const { store } = useContext(Context)
 
   return store.obstacles.length > 0
     ? store.obstacles.map((obs, i) =>

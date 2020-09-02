@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Context } from '../store'
 
 const Unicorn = () => {
-  const { store, dispatch } = useContext(Context)
+  const { store } = useContext(Context)
 
   return (
     <img

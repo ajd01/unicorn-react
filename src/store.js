@@ -3,7 +3,6 @@ import {
   keyDown,
   keyUp,
   moveObstacles,
-  gameOverAction,
   checkColitions
 } from './storeUtils'
 
