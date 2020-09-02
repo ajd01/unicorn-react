@@ -37,3 +37,18 @@ footer {
   padding: 30px;
   font-size: 24px;
 }
+
+.message {
+  display: flex;
+  justify-content: center;
+  width: 110%;
+  height: 100%;
+  color: white;
+  position: absolute;
+  background-color: #00000063;
+  left: -50px;
+  top: -30px;
+  padding-bottom: 20%;
+  padding-top: 20%;
+  z-index: 100;
+}

@@ -1,66 +1,30 @@
 import React from 'react'
+import {
+  keyDown,
+  keyUp,
+  moveObstacles,
+  gameOverAction,
+  checkColitions
+} from './storeUtils'
 
 export const Context = React.createContext()
 
 export const InitialState = {
+  globalScore: 0,
   score: 0,
   deads: 0,
   gameActive: false,
   objects: [],
   player: {
-    imageSrc: '/assets/uniStep1.png',
+    imageSrc: '/unicorn/assets/uniStep1.png',
     action: 'walk',
     position: 10
   },
   frames: 10,
   obstacles: [],
   dificulty: 5,
-  framesActives: 0
-}
-
-const keyDown = (state, action) => {
-  if (action.keyCode === 38) {
-    state.player.action = 'jump'
-  }
-  if (action.keyCode === 40) {
-    state.player.action = 'getDown'
-  }
-  console.log(action.keyCode)
-  return { ...state }
-}
-
-const keyUp = (state, action) => {
-  if (action.keyCode === 38) {
-    state.player.action = 'walk'
-    console.log(state.obstacles)
-  }
-  if (action.keyCode === 40) {
-    state.player.action = 'walk'
-  }
-  return { ...state }
-}
-
-const moveObstacles = (state, acion) => {
-  state.obstacles = state.obstacles.map(obs => {
-    const newPosition = obs.position - 10 / state.dificulty
-    if (newPosition > -100) {
-      return { ...obs, position: newPosition }
-    } return undefined
-  }).filter(a => a)
-  return { ...state }
-}
-
-const checkColitions = (state, action) => {
-  const a = state.obstacles.map(o => {
-    const position = o.position
-    if (position - state.player.position <= 10) {
-      console.log('colision')
-    }
-    return position
-  })
-  console.log(a)
-
-  return { ...state }
+  framesActives: 0,
+  message: 'Press Bar to start'
 }
 
 export const Reducer = (state, action) => {

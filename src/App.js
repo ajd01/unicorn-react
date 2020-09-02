@@ -15,7 +15,7 @@ function App () {
         onKeyUp={(e) => dispatch({ type: 'keyUp', keyCode: e.keyCode })}
       >
         <header className='App-header'>
-          <div>Score: {store.score}</div>
+          <div>Score: {store.score} MAX: {store.globalScore}</div>
           <div>Run Unicorn!</div>
           <div>Deads: {store.deads}</div>
         </header>

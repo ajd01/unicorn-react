@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../store'
 
 const Obstacle = ({ type = 'hay', position }) => {
@@ -11,8 +11,8 @@ const Obstacle = ({ type = 'hay', position }) => {
       }}
       alt='Obstacle'
       src={type !== 'hay'
-        ? '/assets/fence.png'
-        : '/assets/hay.png'}
+        ? '/unicorn/assets/fence.png'
+        : '/unicorn/assets/hay.png'}
     />
   )
 }
